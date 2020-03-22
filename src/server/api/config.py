@@ -21,11 +21,6 @@ class CConfig(object):
     # Flask base
     HOST = "0.0.0.0"
     PORT = '5000'
-    SQLALCHEMY_DATABASE_URI = ""
-    ROOT_PRIVATE_KEY = ""
-    MAIN_ADDRESS = ""
-    provider = ""
-    curr_dir=""
 
     def __init__(self):
         # Flask
