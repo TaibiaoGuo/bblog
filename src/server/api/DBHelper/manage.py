@@ -12,8 +12,12 @@ from flask import Flask
 
 from flask_sqlalchemy import SQLAlchemy
 
+from config import Config
 
-# sys.path.append('../')
+from passlib.apps import custom_app_context as pwd_context
+from flask_cors import CORS
+
+ sys.path.append('../')
 
 # initialization
 app = Flask(__name__)
@@ -25,9 +29,12 @@ app = Flask(__name__)
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['autocommit'] = False
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:bigdata205@45.62.105.143:6003/blockchain_academicrecord?charset=utf8'
+app.config['SQLALCHEMY_DATABASE_URI'] = Config.SQLALCHEMY_DATABASE_URI
 
 db = SQLAlchemy(app, session_options={'autocommit': False})
+
+# 跨域问题
+cors = CORS(app, resources=r"/*")
 
 
 def to_dict(self):
@@ -93,8 +100,7 @@ class Advertising(db.Model):
 
 
 if __name__ == '__main__':
-    bid = IdInfo.query.filter(IdInfo.bid == '0').first()
-    result = bid.id
-    for article in result:
-        print('-' * 10)
-        print(article.title)
+    db.drop_all()
+    print("数据库已删除")
+    db.create_all()
+    print("数据库已新建")

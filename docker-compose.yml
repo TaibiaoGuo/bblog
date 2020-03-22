@@ -3,23 +3,23 @@ version: "3.7"
 services:
 
   bblog-web:
-    build: ./web
+    image: registry.cn-shenzhen.aliyuncs.com/blockchain101/bblog-web
     ports:
-      - "8080:80"
+      - "8080:8080"
     depends_on:
       - bblog-api
 
   bblog-api:
-    build: ./api
+    image: registry.cn-shenzhen.aliyuncs.com/blockchain101/bblog-api
     depends_on:
     - bblog-db
     - bblog-sol
 
   bblog-db:
-    image: mysql
+    image: registry.cn-shenzhen.aliyuncs.com/blockchain101/bblog-mysql
 
   bblog-eth:
-    build: ./eth
+    image: registry.cn-shenzhen.aliyuncs.com/blockchain101/bblog-eth
 
     ports:
       - "8545:8545"
@@ -27,7 +27,7 @@ services:
       - "30303:30303/udp"
 
   bblog-ipfs:
-    image: ipfs
+    image: registry.cn-shenzhen.aliyuncs.com/blockchain101/bblog-ipfs
 
   bblog-sol:
     build: ./contracts
