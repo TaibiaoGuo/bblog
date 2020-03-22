@@ -4,7 +4,7 @@
 # @Github   :https://github.com/TaibiaoGuo
 # @Describe : Python application with multistage builds
 
-FROM python:3.7-alpine
+FROM python:3.7
 
 WORKDIR /app
 COPY . .
