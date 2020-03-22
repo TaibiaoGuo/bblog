@@ -465,6 +465,6 @@ class ReceiptWatcher(ContentContract):
                 return res
 
 
-receipt_watcher = ReceiptWatcher(private_key=Config.root_private_keys)
+receipt_watcher = ReceiptWatcher(private_key=Config.ROOT_PRIVATE_KEY)
 if __name__ == '__main__':
     print("over")

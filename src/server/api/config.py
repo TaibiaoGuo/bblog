@@ -19,8 +19,8 @@ class CConfig(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # Flask base
-    HOST = "0.0.0.0"
-    PORT = '5000'
+    HOST = '0.0.0.0'
+    PORT = 5000
 
     def __init__(self):
         # Flask
@@ -39,7 +39,7 @@ class CConfig(object):
         self.title_length = 22
 
         # IPFS
-        self.ipfs_host = "bblog-ipfs"
+        self.ipfs_host = OSEnv.getOSVariable(self,'IPFS_HOST')
         self.ipfs_port = "5001"
 
         USER_DATA_DIR = AppDirs("UlordPySdk", "").user_data_dir

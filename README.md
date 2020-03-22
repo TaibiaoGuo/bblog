@@ -64,6 +64,7 @@ curl -sSL https://raw.githubusercontent.com/TaibiaoGuo/bblog/master/deploy.sh -o
 |MAIN_ADDRESS|0x24736c9d1a4bef7483281f914206ba70be08c099||
 |ETH_PROVIDER|http://bblog-eth:8545|区块链服务接入点|
 |API_PROVIDER|http://bblog-api:5000|api服务接入点|
+|IPFS_HOST|bblog-ipfs|api服务接入点|
 
 
 ### TODO
