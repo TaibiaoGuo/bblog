@@ -706,5 +706,8 @@ def get_nonce(address):
     return jsonify(receipt_watcher._nonce(address=address))
 
 
-if __name__ == '__mainn__':
+if __name__ == '__main__':
+    if os.path.isfile(r'DBhelper/sqlite.db') is False:
+        db.create_all()
+    host_ip = socket.gethostbyname(socket.gethostname())
     app.run(host=app.config["HOST"], port=app.config["PORT"])

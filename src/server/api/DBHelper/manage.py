@@ -7,7 +7,7 @@
  @Github   :https://github.com/TaibiaoGuo
  @Describe :
 '''
-
+import sys
 from flask import Flask
 
 from flask_sqlalchemy import SQLAlchemy
@@ -17,7 +17,7 @@ from config import Config
 from passlib.apps import custom_app_context as pwd_context
 from flask_cors import CORS
 
- sys.path.append('../')
+sys.path.append('../')
 
 # initialization
 app = Flask(__name__)

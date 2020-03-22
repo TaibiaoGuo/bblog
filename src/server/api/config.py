@@ -13,7 +13,7 @@ import os
 from appdirs import AppDirs
 
 
-class Config(object):
+class CConfig(object):
     # DB base
     JSON_AS_ASCII = False  # support chinese
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -21,6 +21,11 @@ class Config(object):
     # Flask base
     HOST = "0.0.0.0"
     PORT = '5000'
+    SQLALCHEMY_DATABASE_URI = ""
+    ROOT_PRIVATE_KEY = ""
+    MAIN_ADDRESS = ""
+    provider = ""
+    curr_dir=""
 
     def __init__(self):
         # Flask
@@ -30,9 +35,9 @@ class Config(object):
         self.SQLALCHEMY_DATABASE_URI = 'sqlite:///sqlite.db'
 
         # ETH
-        self.ROOT_PRIVATE_KEY = OSEnv.getOSVariable('PRIVATE_KEY')
-        self.MAIN_ADDRESS = OSEnv.getOSVariable('MAIN_ADDRESS')
-        self.provider = OSEnv.getOSVariable('ETH_PROVIDER')
+        self.ROOT_PRIVATE_KEY = OSEnv.getOSVariable(self,'PRIVATE_KEY')
+        self.MAIN_ADDRESS = OSEnv.getOSVariable(self,'MAIN_ADDRESS')
+        self.provider = OSEnv.getOSVariable(self,'ETH_PROVIDER')
         self.BLOCK_GAS_LIMIT = 6800000
         self.GAS_LIMIT = 6800000
         self.newbie_token = 5000
@@ -52,3 +57,5 @@ class Config(object):
         self.curr_dir = os.getcwd()
 
         self.receipt_watcher_sleep_time = 1
+
+Config = CConfig()
