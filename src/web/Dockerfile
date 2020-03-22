@@ -8,10 +8,11 @@ RUN npm i
 COPY . .
 # 安装依赖并编译
 RUN npm run build
+CMD [ "http-server", "dist" ]
 
 # nginx 作为http服务器
-FROM nginx:stable-alpine as production-stage
-LABEL maintainer="TaibiaoGuo github.com/TaibiaoGuo/bblog"
-COPY --from=builder /app/dist /user/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# FROM nginx:stable-alpine as production-stage
+# LABEL maintainer="TaibiaoGuo github.com/TaibiaoGuo/bblog"
+# COPY --from=builder /app/dist /user/share/nginx/html
+# EXPOSE 80
+# CMD ["nginx", "-g", "daemon off;"]
