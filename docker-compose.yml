@@ -1,0 +1,35 @@
+version: "3.7"
+
+services:
+
+  bblog-web:
+    build: ./web
+    ports:
+      - "80:80"
+    depends_on:
+      - bblog-api
+
+  bblog-api:
+    build: ./api
+    depends_on:
+    - bblog-db
+    - bblog-sol
+
+  bblog-db:
+    image: mysql
+
+  bblog-eth:
+    build: ./eth
+
+    ports:
+      - "8545:8545"
+      - "30303:30303"
+      - "30303:30303/udp"
+
+  bblog-ipfs:
+    image: ipfs
+
+  bblog-sol:
+    build: ./contracts
+    depends_on:
+      - bblog-eth
