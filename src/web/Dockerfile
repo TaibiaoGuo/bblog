@@ -2,6 +2,7 @@
 # 将node-轻量版作为基础环境
 FROM node:lts as builder
 LABEL maintainer="TaibiaoGuo github.com/TaibiaoGuo/bblog"
+RUN npm install -g http-server
 WORKDIR /app
 COPY package*.json ./
 RUN npm i
