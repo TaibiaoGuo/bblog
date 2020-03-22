@@ -49,7 +49,7 @@ docker-compose up
 
 #### 鸣谢
 
-本项目的最初源代码基于ulord/blog-demo项目，本项目只是完善以下内容：
+本项目的最初源代码基于 `UlordChain/blog-demo`项目，本项目只是完善以下内容：
 
 * 完善了项目文档，以方便教学
 * 使用docker打包，方便部署和使用
