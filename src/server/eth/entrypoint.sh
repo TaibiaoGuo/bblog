@@ -3,7 +3,7 @@
 ##########################################
 # @Time     :2020/2/24 7:50 PM
 # @Author   :TaibiaoGuo
-# @FileName :endpoint.sh
+# @FileName :entrypoint.sh
 # @Github   :https://github.com/TaibiaoGuo
 # @Describe :
 ###########################################

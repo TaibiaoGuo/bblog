@@ -14,3 +14,12 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+
+src/server/api/DBHelper/__pycache__/
+src/server/api/DBHelper/sqlite.db
+src/server/api/__pycache__/
+src/server/api/logs/info.log
+src/server/api/logs/debug.log
+src/server/api/logs/error.log
+src/server/api/utils/__pycache__/
+src/web/package-lock.json

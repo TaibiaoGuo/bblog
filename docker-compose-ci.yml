@@ -1,17 +1,16 @@
-# @Time     :2020/4/5 1:41 PM
-# @Author   :TaibiaoGuo
-# @Github   :https://github.com/TaibiaoGuo
-# @Describe : bblog deployment with docker-compose.
-#             To avoid network failure, we used the Aliyun docker mirror registry to storage images.
-#             You can use your own setting to overwrite the predefined environment variables in
-#             the environment variable files, such as the private key, etc.
+# @Time     : 2020/4/5 1:41 PM
+# @Author   : TaibiaoGuo
+# @Github   : https://github.com/TaibiaoGuo
+# @Describe : Developers compile bblog with this script. If you encounter a network failure while building, You must
+#             set up a network proxy or docker registry proxy to successfully run this script.
 
 version: "3.7"
 
 services:
 
   bblog-web:
-    image: registry.cn-shenzhen.aliyuncs.com/blockchain101/bblog-web
+    build:
+      context: ./src/web
     ports:
       - "${WEB_PORT}:8080"
     env_file:
@@ -23,7 +22,8 @@ services:
       - bblog-api
 
   bblog-api:
-    image: registry.cn-shenzhen.aliyuncs.com/blockchain101/bblog-api
+    build:
+      context: ./src/server/api
     ports:
       - "${API_PORT}:5000"
     env_file:
@@ -35,7 +35,8 @@ services:
 
 
   bblog-eth:
-    image: registry.cn-shenzhen.aliyuncs.com/blockchain101/bblog-eth
+    build:
+      context: ./src/server/eth
     ports:
       - "${ETH_RPC_PORT}:8545"
       - "${ETH_P2P_PORT}:30303"
@@ -45,7 +46,8 @@ services:
     - ./src/contracts.env
 
   bblog-ipfs:
-    image: registry.cn-shenzhen.aliyuncs.com/blockchain101/bblog-ipfs
+    build:
+      context: ./src/server/ipfs
     ports:
       - "${IPFS_P2P_PORT}:4001"
       - "${IPFS_API_PORT}:5001"

@@ -13,7 +13,6 @@ import sols
 import os
 
 
-
 true = True
 false = False
 web3 = Web3(HTTPProvider('ETH_PROVIDER'))

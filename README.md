@@ -16,10 +16,9 @@ docker stack up -c docker-compose.yml bblog
 #### Linux
 在终端直接运行此命令即可自动部署
 ```
-curl -sSL https://raw.githubusercontent.com/TaibiaoGuo/bblog/master/deploy.sh -o deploy.sh && chmod +x deploy.sh && ./deploy.sh && rm deploy.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/TaibiaoGuo/bblog/master/deploy.sh)"
 ```
-等待服务编译和部署完成，打开 `http://localhost:8080`即可进入主界面。
-
+等待服务编译和部署完成，打开 `http://localhost:2020`即可进入主界面。
 
 > 如果你需要搭建开发环境，计算机需先安装Docker
 > 并正确设置`科学上网`或者`国内docker镜像源`，更多信息请参见
@@ -42,13 +41,12 @@ curl -sSL https://raw.githubusercontent.com/TaibiaoGuo/bblog/master/deploy.sh -o
 ```
 
 #### 服务间关系
-服务运行会建构`VIP`类型的服务网络，并将web服务的`8080`端口和eth服务的`8545`映射到主机的`8080`和`8545`端口。
 
 |端口|用途 |
 | --- |---|
 |5000 | api |
 |5001 | ipfs web界面 |
-| 8080| web界面 |
+| 2020| web界面 |
 |8545 | eth rpc接口 |
 |30303 | eth p2p通讯 |
 
@@ -59,9 +57,8 @@ curl -sSL https://raw.githubusercontent.com/TaibiaoGuo/bblog/master/deploy.sh -o
 |---|---|---|---|
 |web| web展示界面，供用户使用| js|vue |
 |api|给web服务调用的后端服务 |python|flask |
-|sol|以太坊节点服务 |solidity | |
+|sol|合约部署服务 |solidity,python |web3py |
 |ipfs|存储博文中的图片的服务 | | |
-|mysql|维护用户信息等数据的服务 | | |
 
 #### 配置参考和修改说明
 
