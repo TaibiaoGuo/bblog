@@ -709,4 +709,4 @@ def get_nonce(address):
 if __name__ == '__main__':
     if os.path.isfile(r'DBhelper/sqlite.db') is False:
         db.create_all()
-    app.run(host=Config.HOST, port=Config.PORT)
+    app.run(host=Config.HOST, port=Config.PORT,debug=True)

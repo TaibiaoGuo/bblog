@@ -17,7 +17,7 @@
       "balance": "1000000"
       }
     },
-  "coinbase": "0x24736c9d1a4bef7483281f914206ba70be08c099",
+  "coinbase": "0x0000000000000000000000000000000000000000",
   "difficulty": "0x20000",
   "extraData": "",
   "gasLimit": "0xffffffff",

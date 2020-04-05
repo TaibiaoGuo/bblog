@@ -44,6 +44,15 @@ curl -sSL https://raw.githubusercontent.com/TaibiaoGuo/bblog/master/deploy.sh -o
 #### 服务间关系
 服务运行会建构`VIP`类型的服务网络，并将web服务的`8080`端口和eth服务的`8545`映射到主机的`8080`和`8545`端口。
 
+|端口|用途 |
+| --- |---|
+|5000 | api |
+|5001 | ipfs web界面 |
+| 8080| web界面 |
+|8545 | eth rpc接口 |
+|30303 | eth p2p通讯 |
+
+
 #### 服务开发语言
 
 |服务 |功能|语言 |框架 |
@@ -58,13 +67,16 @@ curl -sSL https://raw.githubusercontent.com/TaibiaoGuo/bblog/master/deploy.sh -o
 
 |环境变量名 |值|注释|
 |---|---|---|
-| SC_AUTHOR_MODULE| |合约地址|
-|SC_USER_MODULE||合约地址|
+| SC_AUTHOR_MODULE|0x699385E10d026be73b527E04060d9987587d4706 |合约地址|
+|SC_USER_MODULE|0x6B772ec08A657e8C5eAef8e5eC2292d5D1446d8F|合约地址|
 |PRIVATE_KEY|622C5B7B7BC8B728E07F6E04A9FDC5F46EC6273574E06D86AAA66259B3ECDD95||
 |MAIN_ADDRESS|0x24736c9d1a4bef7483281f914206ba70be08c099||
 |ETH_PROVIDER|http://bblog-eth:8545|区块链服务接入点|
 |API_PROVIDER|http://bblog-api:5000|api服务接入点|
 |IPFS_HOST|bblog-ipfs|api服务接入点|
+|SC_DEPLOYDB|0x892464f68DBD8B8FeA74a9d4F077F49A9710e565||
+|SC_DEPLOYCENTER|0xF08C757480F07F1b1F6A853EF632FbA549bda5B8||
+|SC_DEPLOYUSER|0x4991339e6c28b4E22030355AE3c39011E3b2AdEA||
 
 
 ### TODO

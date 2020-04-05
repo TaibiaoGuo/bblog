@@ -6,28 +6,46 @@ services:
     image: registry.cn-shenzhen.aliyuncs.com/blockchain101/bblog-web
     ports:
       - "8080:8080"
+    env_file:
+      - ./src/base.env
+      - ./src/contracts.env
+    deploy:
+      endpoint_mode: vip
     depends_on:
       - bblog-api
 
   bblog-api:
     image: registry.cn-shenzhen.aliyuncs.com/blockchain101/bblog-api
+    ports:
+      - 5000:5000
+    env_file:
+    - ./src/base.env
+    - ./src/contracts.env
     depends_on:
     - bblog-db
     - bblog-sol
 
-  bblog-db:
-    image: registry.cn-shenzhen.aliyuncs.com/blockchain101/bblog-mysql
 
   bblog-eth:
     image: registry.cn-shenzhen.aliyuncs.com/blockchain101/bblog-eth
-
     ports:
       - "8545:8545"
       - "30303:30303"
       - "30303:30303/udp"
+    env_file:
+    - ./src/base.env
+    - ./src/contracts.env
 
   bblog-ipfs:
     image: registry.cn-shenzhen.aliyuncs.com/blockchain101/bblog-ipfs
+    ports:
+      - 4001:4001
+      - 5001:5001
+      - 8080:8080
+      - 8081:8081
+    env_file:
+    - ./src/base.env
+    - ./src/contracts.env
 
   bblog-sol:
     build: ./contracts

@@ -16,3 +16,8 @@ yarn-error.log*
 *.sln
 
 .github
+
+
+src/server/logs/
+*/__pycache__/
+
